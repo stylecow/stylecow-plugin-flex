@@ -3,6 +3,12 @@ stylecow plugin flex
 
 Stylecow plugin to add vendor prefixes and create fallback with the old flexbox syntax in explorer 10 and webkit
 
+More info:
+
+* [Complete guide to flexbox](http://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [w3c specification](http://www.w3.org/TR/css3-flexbox/)
+* [Old and new syntax](http://css-tricks.com/old-flexbox-and-new-flexbox/)
+
 You write:
 
 ```css
