@@ -8,7 +8,10 @@ module.exports = function (stylecow) {
 				explorer: 11.0
 			},
 			Declaration: function (declaration) {
-				if (declaration.is(null, 'display', ['flex', 'inline-flex'])) {
+				if (declaration.is({
+					name: 'display',
+					value: ['flex', 'inline-flex']
+				})) {
 					return declaration.insertBefore('display: -ms-' + declaration.value + 'box');
 				}
 				
@@ -44,7 +47,7 @@ module.exports = function (stylecow) {
 					return declaration.insertBefore('-ms-flex-line-pack: ' + alignmentValue(declaration.value));
 				}
 
-				if (declaration.is(null, /^flex/)) {
+				if (declaration.is({name: /^flex/})) {
 					return declaration.cloneBefore().name = '-ms-' + declaration.name;
 				}
 			}
@@ -60,7 +63,10 @@ module.exports = function (stylecow) {
 			},
 			Declaration: {
 				display: function (declaration) {
-					if (declaration.is(null, null, ['flex', 'inline-flex'])) {
+					if (declaration.is({
+						name: 'display',
+						value: ['flex', 'inline-flex']
+					})) {
 						declaration.insertBefore('display: -webkit-' + declaration.value.replace('flex', 'box'));
 					}
 				},
@@ -131,12 +137,17 @@ module.exports = function (stylecow) {
 				ios: 7.0
 			},
 			Declaration: function (declaration) {
-				if (declaration.is(null, /^(flex.*|align.*|justify-content|order)$/)) {
-					return declaration.cloneBefore().name = '-webkit-' + declaration.name;
+				if (declaration.is({
+					name: 'display',
+					value: ['flex', 'inline-flex']
+				})) {
+					return declaration.cloneBefore().setValue('-webkit-' + declaration.value);
 				}
 
-				if (declaration.is(null, 'display', ['flex', 'inline-flex'])) {
-					return declaration.cloneBefore().value = '-webkit-' + declaration.value;
+				if (declaration.is({
+					name: /^(flex.*|align.*|justify-content|order)$/
+				})) {
+					return declaration.cloneBefore().name = '-webkit-' + declaration.name;
 				}
 			}
 		}
