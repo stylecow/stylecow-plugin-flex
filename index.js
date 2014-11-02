@@ -12,11 +12,11 @@ module.exports = function (stylecow) {
 					name: 'display',
 					value: ['flex', 'inline-flex']
 				})) {
-					return declaration.insertBefore('display: -ms-' + declaration.value + 'box');
+					return declaration.before('display: -ms-' + declaration.value + 'box');
 				}
 				
 				if (declaration.name === 'flex-wrap') {
-					return declaration.insertBefore('-ms-flex-wrap: ' + (declaration.value === 'nowrap' ? 'none' : declaration.value));
+					return declaration.before('-ms-flex-wrap: ' + (declaration.value === 'nowrap' ? 'none' : declaration.value));
 				}
 				
 				if (declaration.name === 'flex-grow') {
@@ -32,19 +32,19 @@ module.exports = function (stylecow) {
 				}
 				
 				if (declaration.name === 'justify-content') {
-					return declaration.insertBefore('-ms-flex-pack: ' + alignmentValue(declaration.value));
+					return declaration.before('-ms-flex-pack: ' + alignmentValue(declaration.value));
 				}
 				
 				if (declaration.name === 'align-items') {
-					return declaration.insertBefore('-ms-flex-align: ' + alignmentValue(declaration.value));
+					return declaration.before('-ms-flex-align: ' + alignmentValue(declaration.value));
 				}
 				
 				if (declaration.name === 'align-self') {
-					return declaration.insertBefore('-ms-flex-item-align: ' + alignmentValue(declaration.value));
+					return declaration.before('-ms-flex-item-align: ' + alignmentValue(declaration.value));
 				}
 				
 				if (declaration.name === 'align-content') {
-					return declaration.insertBefore('-ms-flex-line-pack: ' + alignmentValue(declaration.value));
+					return declaration.before('-ms-flex-line-pack: ' + alignmentValue(declaration.value));
 				}
 
 				if (declaration.is({name: /^flex/})) {
@@ -67,7 +67,7 @@ module.exports = function (stylecow) {
 						name: 'display',
 						value: ['flex', 'inline-flex']
 					})) {
-						declaration.insertBefore('display: -webkit-' + declaration.value.replace('flex', 'box'));
+						declaration.before('display: -webkit-' + declaration.value.replace('flex', 'box'));
 					}
 				},
 				"flex-direction": function (declaration) {
@@ -96,16 +96,16 @@ module.exports = function (stylecow) {
 							return false;
 					}
 
-					declaration.insertBefore('-webkit-box-orient:' + orient);
+					declaration.before('-webkit-box-orient:' + orient);
 
 					if (direction) {
-						declaration.insertBefore('-webkit-box-direction:' + direction);
+						declaration.before('-webkit-box-direction:' + direction);
 					}
 				},
 				order: function (declaration) {
 					var value = (declaration.value == 0) ? 1 : property.value;
 
-					declaration.insertBefore('-webkit-box-ordinal-group:' + value);
+					declaration.before('-webkit-box-ordinal-group:' + value);
 				},
 				"justify-content": function (declaration) {
 					var value = alignmentValue(declaration.value);
@@ -114,16 +114,16 @@ module.exports = function (stylecow) {
 						value = 'justify';
 					}
 
-					declaration.insertBefore('-webkit-box-pack:' + value);
+					declaration.before('-webkit-box-pack:' + value);
 				},
 				"align-items": function (declaration) {
-					declaration.insertBefore('-webkit-box-align:' + alignmentValue(declaration.value));
+					declaration.before('-webkit-box-align:' + alignmentValue(declaration.value));
 				},
 				"flex-grow": function (declaration) {
-					declaration.insertBefore('-webkit-box-flex:' + declaration.value);
+					declaration.before('-webkit-box-flex:' + declaration.value);
 				},
 				"flex": function (declaration) {
-					declaration.insertBefore('-webkit-box-flex:' + declaration.value);
+					declaration.before('-webkit-box-flex:' + declaration.value);
 				}
 			}
 		},
@@ -141,7 +141,7 @@ module.exports = function (stylecow) {
 					name: 'display',
 					value: ['flex', 'inline-flex']
 				})) {
-					return declaration.cloneBefore().setValue('-webkit-' + declaration.value);
+					return declaration.cloneBefore().setContent('-webkit-' + declaration.value);
 				}
 
 				if (declaration.is({
