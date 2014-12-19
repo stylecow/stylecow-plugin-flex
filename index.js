@@ -8,17 +8,22 @@ module.exports = function (stylecow) {
 				explorer: 11.0
 			},
 			Declaration: function (declaration) {
-				if (declaration.is({
-					name: 'display',
-					value: ['flex', 'inline-flex']
-				})) {
-					return declaration.before('display: -ms-' + declaration.value + 'box');
+				if (declaration.is({ string: 'display: flex;' })) {
+					return declaration.before(stylecow.Declaration.createFromString('display: -ms-flexbox'));
 				}
-				
+
+				if (declaration.is({ string: 'display: inline-flex;' })) {
+					return declaration.before(stylecow.Declaration.createFromString('display: -ms-inline-flexbox'));
+				}
+
 				if (declaration.name === 'flex-wrap') {
-					return declaration.before('-ms-flex-wrap: ' + (declaration.value === 'nowrap' ? 'none' : declaration.value));
+					if (declaration.is({ string: 'flex-wrap: nowrap;' })) {
+						return declaration.before(stylecow.Declaration.createFromString('-ms-flex-wrap: none'));
+					}
+
+					return declaration.cloneBefore().name = '-ms-flex-wrap';
 				}
-				
+
 				if (declaration.name === 'flex-grow') {
 					return declaration.cloneBefore().name = '-ms-flex-positive';
 				}
@@ -32,19 +37,19 @@ module.exports = function (stylecow) {
 				}
 				
 				if (declaration.name === 'justify-content') {
-					return declaration.before('-ms-flex-pack: ' + alignmentValue(declaration.value));
+					return declaration.before(stylecow.Declaration.createFromString('-ms-flex-pack: ' + alignmentValue(declaration.join(' '))));
 				}
 				
 				if (declaration.name === 'align-items') {
-					return declaration.before('-ms-flex-align: ' + alignmentValue(declaration.value));
+					return declaration.before(stylecow.Declaration.createFromString('-ms-flex-align: ' + alignmentValue(declaration.join(' '))));
 				}
 				
 				if (declaration.name === 'align-self') {
-					return declaration.before('-ms-flex-item-align: ' + alignmentValue(declaration.value));
+					return declaration.before(stylecow.Declaration.createFromString('-ms-flex-item-align: ' + alignmentValue(declaration.join(' '))));
 				}
 				
 				if (declaration.name === 'align-content') {
-					return declaration.before('-ms-flex-line-pack: ' + alignmentValue(declaration.value));
+					return declaration.before(stylecow.Declaration.createFromString('-ms-flex-line-pack: ' + alignmentValue(declaration.join(' '))));
 				}
 
 				if (declaration.is({name: /^flex/})) {
@@ -63,17 +68,19 @@ module.exports = function (stylecow) {
 			},
 			Declaration: {
 				display: function (declaration) {
-					if (declaration.is({
-						name: 'display',
-						value: ['flex', 'inline-flex']
-					})) {
-						declaration.before('display: -webkit-' + declaration.value.replace('flex', 'box'));
+					if (declaration.is({ string: 'display: flex;' })) {
+						return declaration.before(stylecow.Declaration.createFromString('display: -webkit-box'));
+					}
+
+					if (declaration.is({ string: 'display: inline-flex;' })) {
+						return declaration.before(stylecow.Declaration.createFromString('display: -webkit-inline-box'));
 					}
 				},
+
 				"flex-direction": function (declaration) {
 					var orient, direction;
 
-					switch (declaration.value) {
+					switch (declaration.join(' ')) {
 						case 'row':
 							orient = 'horizontal';
 							break;
@@ -96,34 +103,43 @@ module.exports = function (stylecow) {
 							return false;
 					}
 
-					declaration.before('-webkit-box-orient:' + orient);
+					declaration.before(stylecow.Declaration.createFromString('-webkit-box-orient: ' + orient));
 
 					if (direction) {
-						declaration.before('-webkit-box-direction:' + direction);
+						declaration.before(stylecow.Declaration.createFromString('-webkit-box-direction: ' + direction));
 					}
 				},
-				order: function (declaration) {
-					var value = (declaration.value == 0) ? 1 : property.value;
 
-					declaration.before('-webkit-box-ordinal-group:' + value);
+				order: function (declaration) {
+					var value = parseInt(declaration.join(' '));
+
+					if (value === 0) {
+						value = 1;
+					}
+
+					declaration.before(stylecow.Declaration.createFromString('-webkit-box-ordinal-group: ' + value));
 				},
+
 				"justify-content": function (declaration) {
-					var value = alignmentValue(declaration.value);
+					var value = alignmentValue(declaration.join(' '));
 
 					if ((value === 'space-between') || (value === 'space-around')) {
 						value = 'justify';
 					}
 
-					declaration.before('-webkit-box-pack:' + value);
+					declaration.before(stylecow.Declaration.createFromString('-webkit-box-pack: ' + value));
 				},
+
 				"align-items": function (declaration) {
-					declaration.before('-webkit-box-align:' + alignmentValue(declaration.value));
+					declaration.before(stylecow.Declaration.createFromString('-webkit-box-align: ' + alignmentValue(declaration.join(' '))));
 				},
+
 				"flex-grow": function (declaration) {
-					declaration.before('-webkit-box-flex:' + declaration.value);
+					declaration.cloneBefore().name = '-webkit-box-flex';
 				},
+
 				"flex": function (declaration) {
-					declaration.before('-webkit-box-flex:' + declaration.value);
+					declaration.cloneBefore().name = '-webkit-box-flex';
 				}
 			}
 		},
@@ -137,16 +153,15 @@ module.exports = function (stylecow) {
 				ios: 7.0
 			},
 			Declaration: function (declaration) {
-				if (declaration.is({
-					name: 'display',
-					value: ['flex', 'inline-flex']
-				})) {
-					return declaration.cloneBefore().setContent('-webkit-' + declaration.value);
+				if (declaration.is({ string: 'display: flex;' })) {
+					return declaration.before(stylecow.Declaration.createFromString('display: -webkit-flex'));
 				}
 
-				if (declaration.is({
-					name: /^(flex.*|align.*|justify-content|order)$/
-				})) {
+				if (declaration.is({ string: 'display: inline-flex;' })) {
+					return declaration.before(stylecow.Declaration.createFromString('display: -webkit-inline-flex'));
+				}
+
+				if (declaration.is({ name: /^(flex.*|align.*|justify-content|order)$/ })) {
 					return declaration.cloneBefore().name = '-webkit-' + declaration.name;
 				}
 			}
