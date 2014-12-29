@@ -17,12 +17,15 @@ module.exports = function (stylecow) {
 				]
 			},
 			fn: function (declaration) {
-				declaration.cloneBefore().search({
-					type: 'Keyword',
-					name: ['flex', 'inline-flex']
-				}).forEach(function (keyword) {
-					keyword.name = '-webkit-' + keyword.name;
-				});
+				declaration
+					.cloneBefore()
+					.search({
+						type: 'Keyword',
+						name: ['flex', 'inline-flex']
+					})
+					.forEach(function (keyword) {
+						keyword.name = '-webkit-' + keyword.name;
+					});
 			}
 		});
 

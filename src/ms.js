@@ -30,12 +30,15 @@ module.exports = function (stylecow) {
 				]
 			},
 			fn: function (declaration) {
-				declaration.cloneBefore().search({
-					type: 'Keyword',
-					name: ['flex', 'inline-flex']
-				}).forEach(function (keyword) {
-					keyword.name = '-ms-' + keyword.name + 'box';
-				});
+				declaration
+					.cloneBefore()
+					.search({
+						type: 'Keyword',
+						name: ['flex', 'inline-flex']
+					})
+					.forEach(function (keyword) {
+						keyword.name = '-ms-' + keyword.name + 'box';
+					});
 			}
 		});
 
@@ -47,16 +50,16 @@ module.exports = function (stylecow) {
 				name: Object.keys(names)
 			},
 			fn: function (declaration) {
-				var polyfill = declaration.cloneBefore();
-
-				polyfill.name = names[declaration.name];
-
-				polyfill.search({
-					type: 'Keyword',
-					name: Object.keys(values)
-				}).forEach(function (keyword) {
-					keyword.name = values[keyword.name];
-				});
+				declaration
+					.cloneBefore()
+					.set('name', names[declaration.name])
+					.search({
+						type: 'Keyword',
+						name: Object.keys(values)
+					})
+					.forEach(function (keyword) {
+						keyword.name = values[keyword.name];
+					});
 			}
 		});
 
