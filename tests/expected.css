@@ -1,0 +1,21 @@
+div {
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: start;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+	-ms-flex-flow: column wrap;
+	-webkit-box-orient: vertical;
+	-webkit-box-lines: multiple;
+	-webkit-flex-flow: column wrap;
+	flex-flow: column wrap;
+}
+div > div {
+	-ms-flex: 1 0 100%;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 100%;
+	flex: 1 0 100%;
+}
