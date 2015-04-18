@@ -19,13 +19,11 @@ module.exports = function (stylecow) {
 			fn: function (declaration) {
 				declaration
 					.cloneBefore()
-					.search({
+					.get({
 						type: 'Keyword',
 						name: ['flex', 'inline-flex']
 					})
-					.forEach(function (keyword) {
-						keyword.name = '-webkit-' + keyword.name;
-					});
+					.setVendor('webkit');
 			}
 		});
 
@@ -34,10 +32,13 @@ module.exports = function (stylecow) {
 		stylecow.addTask({
 			filter: {
 				type: 'Declaration',
-				name: /^(flex.*|align.*|justify-content|order)$/
+				name: /^(flex.*|align.*|justify-content|order)$/,
+				vendor: false
 			},
 			fn: function (declaration) {
-				declaration.cloneBefore().name = '-webkit-' + declaration.name;
+				declaration
+					.cloneBefore()
+					.setVendor('webkit');
 			}
 		});
 	});

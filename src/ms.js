@@ -20,7 +20,8 @@ module.exports = function (stylecow) {
 		explorer: 11.0
 	}, function () {
 
-		//display: flex/inline-flex => display: -ms-flexbox/-ms-inline-flexbox
+		// from  display: flex/inline-flex
+		// to    display: -ms-flexbox/-ms-inline-flexbox
 		stylecow.addTask({
 			filter: {
 				type: 'Declaration',
@@ -32,28 +33,29 @@ module.exports = function (stylecow) {
 			fn: function (declaration) {
 				declaration
 					.cloneBefore()
-					.search({
+					.getAll({
 						type: 'Keyword',
 						name: ['flex', 'inline-flex']
 					})
 					.forEach(function (keyword) {
-						keyword.name = '-ms-' + keyword.name + 'box';
+						keyword.name += 'box';
+						keyword.vendor = 'ms';
 					});
 			}
 		});
-
 
 		//name/value replacements
 		stylecow.addTask({
 			filter: {
 				type: 'Declaration',
-				name: Object.keys(names)
+				name: Object.keys(names),
+				vendor: false
 			},
 			fn: function (declaration) {
 				declaration
 					.cloneBefore()
-					.set('name', names[declaration.name])
-					.search({
+					.setName(names[declaration.name])
+					.getAll({
 						type: 'Keyword',
 						name: Object.keys(values)
 					})
@@ -63,16 +65,18 @@ module.exports = function (stylecow) {
 			}
 		});
 
-
 		//Other vendor prefixes
 		stylecow.addTask({
 			filter: {
 				type: 'Declaration',
-				name: /^flex/
+				name: /^flex/,
+				vendor: false
 			},
 			fn: function (declaration) {
 				if (!names[declaration.name]) {
-					return declaration.cloneBefore().name = '-ms-' + declaration.name;
+					declaration
+						.cloneBefore()
+						.setVendor('ms');
 				}
 			}
 		});

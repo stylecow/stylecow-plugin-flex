@@ -30,12 +30,13 @@ module.exports = function (stylecow) {
 			fn: function (declaration) {
 				declaration
 					.cloneBefore()
-					.search({
+					.getAll({
 						type: 'Keyword',
 						name: ['flex', 'inline-flex']
 					})
 					.forEach(function (keyword) {
-						keyword.name = '-webkit-' + keyword.name.replace('flex', 'box');
+						keyword.name = keyword.name.replace('flex', 'box');
+						keyword.vendor = 'webkit';
 					});
 			}
 		});
@@ -60,7 +61,7 @@ module.exports = function (stylecow) {
 				name: 'flex-flow'
 			},
 			fn: function (declaration) {
-				var value = declaration[0];
+				var value = declaration.get('Value');
 
 				if (value[0]) { //flex-direction
 					applyFlexDirection(value[0].toString(), declaration);
@@ -80,7 +81,7 @@ module.exports = function (stylecow) {
 				name: 'flex'
 			},
 			fn: function (declaration) {
-				var value = declaration[0];
+				var value = declaration.get('Value');
 
 				if (value[0]) { //flex-grow
 					var val = value[0].toString();
@@ -89,7 +90,7 @@ module.exports = function (stylecow) {
 						val = '0.0';
 					}
 
-					declaration.before(stylecow.Declaration.createFromString('-webkit-box-flex: ' + value[0]));
+					declaration.before(stylecow.parse('-webkit-box-flex: ' + value[0], 'Declaration'));
 				}
 			}
 		});
@@ -116,7 +117,7 @@ module.exports = function (stylecow) {
 			fn: function (declaration) {
 				var value = parseInt(declaration.join(' ')) + 1;
 
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-ordinal-group: ' + value));
+				declaration.before(stylecow.parse('-webkit-box-ordinal-group: ' + value, 'Declaration'));
 			}
 		});
 
@@ -130,8 +131,8 @@ module.exports = function (stylecow) {
 			fn: function (declaration) {
 				declaration
 					.cloneBefore()
-					.set('name', names[declaration.name])
-					.search({
+					.setName(names[declaration.name])
+					.getAll({
 						type: 'Keyword',
 						name: Object.keys(values)
 					})
@@ -145,16 +146,16 @@ module.exports = function (stylecow) {
 	function applyFlexWrap(value, declaration) {
 		switch (value) {
 			case 'wrap':
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-lines: multiple'));
+				declaration.before(stylecow.parse('-webkit-box-lines: multiple', 'Declaration'));
 				break;
 
 			case 'nowrap':
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-lines: single'));
+				declaration.before(stylecow.parse('-webkit-box-lines: single', 'Declaration'));
 				break;
 
 			case 'wrap-reverse':
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-lines: multiple'));
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-direction: reverse'));
+				declaration.before(stylecow.parse('-webkit-box-lines: multiple', 'Declaration'));
+				declaration.before(stylecow.parse('-webkit-box-direction: reverse', 'Declaration'));
 				break;
 		}
 	}
@@ -162,21 +163,21 @@ module.exports = function (stylecow) {
 	function applyFlexDirection(value, declaration) {
 		switch (value) {
 			case 'row':
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-orient: horizontal'));
+				declaration.before(stylecow.parse('-webkit-box-orient: horizontal', 'Declaration'));
 				break;
 
 			case 'row-reverse':
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-orient: horizontal'));
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-direction: reverse'));
+				declaration.before(stylecow.parse('-webkit-box-orient: horizontal', 'Declaration'));
+				declaration.before(stylecow.parse('-webkit-box-direction: reverse', 'Declaration'));
 				break;
 
 			case 'column':
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-orient: vertical'));
+				declaration.before(stylecow.parse('-webkit-box-orient: vertical', 'Declaration'));
 				break;
 
 			case 'column-reverse':
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-orient: vertical'));
-				declaration.before(stylecow.Declaration.createFromString('-webkit-box-direction: reverse'));
+				declaration.before(stylecow.parse('-webkit-box-orient: vertical', 'Declaration'));
+				declaration.before(stylecow.parse('-webkit-box-direction: reverse', 'Declaration'));
 				break;
 		}
 	}

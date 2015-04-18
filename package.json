@@ -1,7 +1,7 @@
 {
 	"name": "stylecow-plugin-flex",
 	"description": "Stylecow plugin to add vendor prefixes and create fallback in browsers supporting the old flexbox syntax",
-	"version": "3.0.1",
+	"version": "4.0.0",
 	"author": "Oscar Otero <oom@oscarotero.com>",
 	"homepage": "https://github.com/stylecow/stylecow-plugin-flex",
 	"bugs": "https://github.com/stylecow/stylecow-plugin-flex/issues",
@@ -10,10 +10,10 @@
 		"url": "https://github.com/stylecow/stylecow-plugin-flex.git"
 	},
 	"scripts": {
-		"test": "node tests/index.js"
+		"test": "mocha tests/cases.js"
 	},
 	"devDependencies": {
-		"stylecow": "*"
+		"stylecow-parser": "2.*"
 	},
 	"main": "index.js",
 	"license": "MIT"
