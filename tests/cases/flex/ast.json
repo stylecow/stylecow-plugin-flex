@@ -303,7 +303,7 @@
                     },
                     {
                       "class": "Number",
-                      "name": null
+                      "name": 0
                     },
                     {
                       "class": "Unit",
@@ -349,7 +349,7 @@
                     },
                     {
                       "class": "Number",
-                      "name": null
+                      "name": 0
                     },
                     {
                       "class": "Unit",
@@ -379,7 +379,7 @@
                     },
                     {
                       "class": "Number",
-                      "name": null
+                      "name": 0
                     },
                     {
                       "class": "Unit",
