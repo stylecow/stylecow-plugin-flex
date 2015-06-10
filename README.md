@@ -1,6 +1,8 @@
 stylecow plugin flex
 ====================
 
+[![Build Status](https://travis-ci.org/stylecow/stylecow-plugin-flex.svg)](https://travis-ci.org/stylecow/stylecow-plugin-flex)
+
 Stylecow plugin to add vendor prefixes and create fallback with the old flexbox syntax in explorer 10 and webkit
 
 More info:
@@ -52,3 +54,5 @@ p {
 	flex-grow: 1;
 }
 ```
+
+More demos in [the tests folder](https://github.com/stylecow/stylecow-plugin-flex/tree/master/tests/cases)
