@@ -7,15 +7,15 @@ div {
 	-webkit-box-align: start;
 	-webkit-align-items: flex-start;
 	align-items: flex-start;
-	-ms-flex-flow: column wrap;
 	-webkit-box-orient: vertical;
 	-webkit-box-lines: multiple;
+	-ms-flex-flow: column wrap;
 	-webkit-flex-flow: column wrap;
 	flex-flow: column wrap;
 }
 div > div {
-	-ms-flex: 1 0 100%;
 	-webkit-box-flex: 1;
+	-ms-flex: 1 0 100%;
 	-webkit-flex: 1 0 100%;
 	flex: 1 0 100%;
 }
