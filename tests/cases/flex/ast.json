@@ -159,6 +159,28 @@
             },
             {
               "class": "Declaration",
+              "name": "flex-flow",
+              "vendor": "ms",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Keyword",
+                      "name": "column",
+                      "vendor": null
+                    },
+                    {
+                      "class": "Keyword",
+                      "name": "wrap",
+                      "vendor": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
               "name": "box-orient",
               "vendor": "webkit",
               "children": [
@@ -185,28 +207,6 @@
                     {
                       "class": "Keyword",
                       "name": "multiple",
-                      "vendor": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "class": "Declaration",
-              "name": "flex-flow",
-              "vendor": "ms",
-              "children": [
-                {
-                  "class": "Value",
-                  "children": [
-                    {
-                      "class": "Keyword",
-                      "name": "column",
-                      "vendor": null
-                    },
-                    {
-                      "class": "Keyword",
-                      "name": "wrap",
                       "vendor": null
                     }
                   ]
@@ -291,22 +291,6 @@
           "children": [
             {
               "class": "Declaration",
-              "name": "box-flex",
-              "vendor": "webkit",
-              "children": [
-                {
-                  "class": "Value",
-                  "children": [
-                    {
-                      "class": "Number",
-                      "name": 1
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "class": "Declaration",
               "name": "flex",
               "vendor": "ms",
               "children": [
@@ -330,6 +314,22 @@
                           "name": 100
                         }
                       ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "class": "Declaration",
+              "name": "box-flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "class": "Value",
+                  "children": [
+                    {
+                      "class": "Number",
+                      "name": 1
                     }
                   ]
                 }
