@@ -66,23 +66,6 @@
                     {
                       "class": "Keyword",
                       "name": "flex",
-                      "vendor": "webkit"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "class": "Declaration",
-              "name": "display",
-              "vendor": null,
-              "children": [
-                {
-                  "class": "Value",
-                  "children": [
-                    {
-                      "class": "Keyword",
-                      "name": "flex",
                       "vendor": null
                     }
                   ]
@@ -117,23 +100,6 @@
                     {
                       "class": "Keyword",
                       "name": "start",
-                      "vendor": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "class": "Declaration",
-              "name": "align-items",
-              "vendor": "webkit",
-              "children": [
-                {
-                  "class": "Value",
-                  "children": [
-                    {
-                      "class": "Keyword",
-                      "name": "flex-start",
                       "vendor": null
                     }
                   ]
@@ -207,28 +173,6 @@
                     {
                       "class": "Keyword",
                       "name": "multiple",
-                      "vendor": null
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "class": "Declaration",
-              "name": "flex-flow",
-              "vendor": "webkit",
-              "children": [
-                {
-                  "class": "Value",
-                  "children": [
-                    {
-                      "class": "Keyword",
-                      "name": "column",
-                      "vendor": null
-                    },
-                    {
-                      "class": "Keyword",
-                      "name": "wrap",
                       "vendor": null
                     }
                   ]
@@ -330,36 +274,6 @@
                     {
                       "class": "Number",
                       "name": 1
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "class": "Declaration",
-              "name": "flex",
-              "vendor": "webkit",
-              "children": [
-                {
-                  "class": "Value",
-                  "children": [
-                    {
-                      "class": "Number",
-                      "name": 1
-                    },
-                    {
-                      "class": "Number",
-                      "name": 0
-                    },
-                    {
-                      "class": "Unit",
-                      "name": "%",
-                      "children": [
-                        {
-                          "class": "Number",
-                          "name": 100
-                        }
-                      ]
                     }
                   ]
                 }
