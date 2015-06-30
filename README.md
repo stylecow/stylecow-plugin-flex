@@ -4,6 +4,7 @@ stylecow plugin flex
 [![Build Status](https://travis-ci.org/stylecow/stylecow-plugin-flex.svg)](https://travis-ci.org/stylecow/stylecow-plugin-flex)
 
 Stylecow plugin to generate the css code with the old flexbox syntax in explorer 10 and webkit.
+
 Note: this plugin does not add vendor prefixes to the new syntax, use [stylecow-plugin-prefixes](https://github.com/stylecow/stylecow-plugin-prefixes) to that.
 
 More info:
