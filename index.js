@@ -1,4 +1,6 @@
-module.exports = function (stylecow) {
-	require('./src/ms')(stylecow);
-	require('./src/webkit')(stylecow);
+"use strict";
+
+module.exports = function (tasks) {
+    tasks.use(require('./src/ms'));
+    tasks.use(require('./src/webkit'));
 };

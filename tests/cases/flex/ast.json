@@ -1,17 +1,17 @@
 {
-  "class": "Root",
+  "type": "Root",
   "children": [
     {
-      "class": "Rule",
+      "type": "Rule",
       "children": [
         {
-          "class": "Selectors",
+          "type": "Selectors",
           "children": [
             {
-              "class": "Selector",
+              "type": "Selector",
               "children": [
                 {
-                  "class": "TypeSelector",
+                  "type": "TypeSelector",
                   "name": "div"
                 }
               ]
@@ -19,18 +19,18 @@
           ]
         },
         {
-          "class": "Block",
+          "type": "Block",
           "children": [
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "display",
               "vendor": null,
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "flexbox",
                       "vendor": "ms"
                     }
@@ -39,15 +39,15 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "display",
               "vendor": null,
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "box",
                       "vendor": "webkit"
                     }
@@ -56,15 +56,15 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "display",
               "vendor": null,
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "flex",
                       "vendor": null
                     }
@@ -73,15 +73,15 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "-ms-flex-align",
               "vendor": null,
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "start",
                       "vendor": null
                     }
@@ -90,15 +90,15 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "-webkit-box-align",
               "vendor": null,
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "start",
                       "vendor": null
                     }
@@ -107,15 +107,15 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "align-items",
               "vendor": null,
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "flex-start",
                       "vendor": null
                     }
@@ -124,20 +124,20 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "flex-flow",
               "vendor": "ms",
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "column",
                       "vendor": null
                     },
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "wrap",
                       "vendor": null
                     }
@@ -146,15 +146,15 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "box-orient",
               "vendor": "webkit",
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "vertical",
                       "vendor": null
                     }
@@ -163,15 +163,15 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "box-lines",
               "vendor": "webkit",
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "multiple",
                       "vendor": null
                     }
@@ -180,20 +180,20 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "flex-flow",
               "vendor": null,
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "column",
                       "vendor": null
                     },
                     {
-                      "class": "Keyword",
+                      "type": "Keyword",
                       "name": "wrap",
                       "vendor": null
                     }
@@ -206,24 +206,24 @@
       ]
     },
     {
-      "class": "Rule",
+      "type": "Rule",
       "children": [
         {
-          "class": "Selectors",
+          "type": "Selectors",
           "children": [
             {
-              "class": "Selector",
+              "type": "Selector",
               "children": [
                 {
-                  "class": "TypeSelector",
+                  "type": "TypeSelector",
                   "name": "div"
                 },
                 {
-                  "class": "Combinator",
+                  "type": "Combinator",
                   "name": ">"
                 },
                 {
-                  "class": "TypeSelector",
+                  "type": "TypeSelector",
                   "name": "div"
                 }
               ]
@@ -231,30 +231,30 @@
           ]
         },
         {
-          "class": "Block",
+          "type": "Block",
           "children": [
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "flex",
               "vendor": "ms",
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Number",
+                      "type": "Number",
                       "name": 1
                     },
                     {
-                      "class": "Number",
+                      "type": "Number",
                       "name": 0
                     },
                     {
-                      "class": "Unit",
+                      "type": "Unit",
                       "name": "%",
                       "children": [
                         {
-                          "class": "Number",
+                          "type": "Number",
                           "name": 100
                         }
                       ]
@@ -264,15 +264,15 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "box-flex",
               "vendor": "webkit",
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Number",
+                      "type": "Number",
                       "name": 1
                     }
                   ]
@@ -280,27 +280,27 @@
               ]
             },
             {
-              "class": "Declaration",
+              "type": "Declaration",
               "name": "flex",
               "vendor": null,
               "children": [
                 {
-                  "class": "Value",
+                  "type": "Value",
                   "children": [
                     {
-                      "class": "Number",
+                      "type": "Number",
                       "name": 1
                     },
                     {
-                      "class": "Number",
+                      "type": "Number",
                       "name": 0
                     },
                     {
-                      "class": "Unit",
+                      "type": "Unit",
                       "name": "%",
                       "children": [
                         {
-                          "class": "Number",
+                          "type": "Number",
                           "name": 100
                         }
                       ]
