@@ -96,7 +96,7 @@ module.exports = function (tasks) {
                     val = '0.0';
                 }
 
-                declaration.codeBefore('-webkit-box-flex: ' + value[0], 'Declaration');
+                declaration.codeBefore('-webkit-box-flex: ' + val, 'Declaration');
             }
         }
     });
@@ -123,9 +123,7 @@ module.exports = function (tasks) {
             name: 'order'
         },
         fn: function (declaration) {
-            var value = parseInt(declaration.join(' ')) + 1;
-
-            declaration.codeBefore('-webkit-box-ordinal-group: ' + value, 'Declaration');
+            declaration.codeBefore('-webkit-box-ordinal-group: ' + (parseInt(declaration.join(' ')) + 1), 'Declaration');
         }
     });
 

@@ -72,14 +72,75 @@ module.exports = function (tasks) {
         forBrowsersLowerThan: support,
         filter: {
             type: 'Declaration',
-            name: /^flex/,
+            name: [
+                'flex-direction',
+                'flex-flow',
+                'flex-basis',
+            ],
             vendor: false
         },
         fn: function (declaration) {
-            if (!names[declaration.name]) {
-                declaration
-                    .cloneBefore()
-                    .setVendor('ms');
+            declaration
+                .cloneBefore()
+                .setVendor('ms');
+        }
+    });
+
+    //Shorthand flex
+    //https://github.com/philipwalton/flexbugs/blob/master/README.md#6-the-default-flex-value-has-changed
+    tasks.addTask({
+        forBrowsersLowerThan: {
+            explorer: 12
+        },
+        filter: {
+            type: 'Declaration',
+            name: 'flex',
+            vendor: false
+        },
+        fn: function (declaration) {
+            if (declaration.has({
+                type: 'Keyword',
+                name: ['auto', 'initial']
+            })) {
+                return;
+            }
+
+            var value = declaration[0];
+
+            if (!value[1]) {
+                value[0].codeBefore('1', 'Number');
+            }
+
+            if (!value[2]) {
+                value[1].codeAfter('0%', 'Unit');
+            } else if (value[2].type === 'Number') {
+                value[2].replaceWithCode(value[2] + '%', 'Unit');
+            }
+        }
+    });
+
+    //Shorthand flex
+    //https://github.com/philipwalton/flexbugs/blob/master/README.md#6-the-default-flex-value-has-changed
+    tasks.addTask({
+        forBrowsersLowerThan: support,
+        filter: {
+            type: 'Declaration',
+            name: 'flex',
+            vendor: false
+        },
+        fn: function (declaration) {
+            switch (declaration.toString()) {
+                case 'flex: 1;':
+                    return declaration.codeBefore('-ms-flex: 1 1 0%', 'Declaration');
+
+                case 'flex: auto;':
+                    return declaration.codeBefore('-ms-flex: 1 1 auto', 'Declaration');
+
+                case 'flex: initial;':
+                    return declaration.codeBefore('-ms-flex: 0 1 auto', 'Declaration');
+
+                default:
+                    return declaration.cloneBefore().setVendor('ms');
             }
         }
     });

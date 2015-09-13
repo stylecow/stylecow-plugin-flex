@@ -1,0 +1,8 @@
+div {
+	display: flex;
+	align-items: flex-start;
+	flex-flow: column wrap;
+}
+div > div {
+	flex: 1 0 100%;
+}
