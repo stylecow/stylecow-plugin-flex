@@ -16,7 +16,7 @@
     "test": "mocha tests/cases.js"
   },
   "devDependencies": {
-    "mocha": "^2.2.5",
+    "mocha": "^2.3.2",
     "stylecow-core": "^2.0.0"
   },
   "main": "index.js",
