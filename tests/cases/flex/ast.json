@@ -23,6 +23,38 @@
           "children": [
             {
               "type": "Declaration",
+              "name": "box-flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
+              "name": "flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
               "name": "flex",
               "vendor": "ms",
               "children": [
@@ -46,22 +78,6 @@
                           "name": 0
                         }
                       ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "Declaration",
-              "name": "box-flex",
-              "vendor": "webkit",
-              "children": [
-                {
-                  "type": "Value",
-                  "children": [
-                    {
-                      "type": "Number",
-                      "name": 1
                     }
                   ]
                 }
@@ -123,6 +139,42 @@
           "children": [
             {
               "type": "Declaration",
+              "name": "box-flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
+              "name": "flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    },
+                    {
+                      "type": "Number",
+                      "name": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
               "name": "flex",
               "vendor": "ms",
               "children": [
@@ -146,22 +198,6 @@
                           "name": 0
                         }
                       ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "Declaration",
-              "name": "box-flex",
-              "vendor": "webkit",
-              "children": [
-                {
-                  "type": "Value",
-                  "children": [
-                    {
-                      "type": "Number",
-                      "name": 1
                     }
                   ]
                 }
@@ -223,6 +259,46 @@
           "children": [
             {
               "type": "Declaration",
+              "name": "box-flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
+              "name": "flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    },
+                    {
+                      "type": "Number",
+                      "name": 1
+                    },
+                    {
+                      "type": "Number",
+                      "name": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
               "name": "flex",
               "vendor": "ms",
               "children": [
@@ -246,22 +322,6 @@
                           "name": 0
                         }
                       ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "Declaration",
-              "name": "box-flex",
-              "vendor": "webkit",
-              "children": [
-                {
-                  "type": "Value",
-                  "children": [
-                    {
-                      "type": "Number",
-                      "name": 1
                     }
                   ]
                 }
@@ -321,6 +381,52 @@
         {
           "type": "Block",
           "children": [
+            {
+              "type": "Declaration",
+              "name": "box-flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
+              "name": "flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    },
+                    {
+                      "type": "Number",
+                      "name": 1
+                    },
+                    {
+                      "type": "Unit",
+                      "name": "px",
+                      "children": [
+                        {
+                          "type": "Number",
+                          "name": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "type": "Declaration",
               "name": "flex",
@@ -353,22 +459,6 @@
             },
             {
               "type": "Declaration",
-              "name": "box-flex",
-              "vendor": "webkit",
-              "children": [
-                {
-                  "type": "Value",
-                  "children": [
-                    {
-                      "type": "Number",
-                      "name": 1
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "Declaration",
               "name": "flex",
               "vendor": null,
               "children": [
@@ -439,20 +529,12 @@
             },
             {
               "type": "Declaration",
-              "name": "flex",
-              "vendor": "ms",
+              "name": "box-flex",
+              "vendor": "webkit",
               "children": [
                 {
                   "type": "Value",
                   "children": [
-                    {
-                      "type": "Number",
-                      "name": 1
-                    },
-                    {
-                      "type": "Number",
-                      "name": 1
-                    },
                     {
                       "type": "Keyword",
                       "name": "auto",
@@ -464,12 +546,37 @@
             },
             {
               "type": "Declaration",
-              "name": "box-flex",
+              "name": "flex",
               "vendor": "webkit",
               "children": [
                 {
                   "type": "Value",
                   "children": [
+                    {
+                      "type": "Keyword",
+                      "name": "auto",
+                      "vendor": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
+              "name": "flex",
+              "vendor": "ms",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 1
+                    },
+                    {
+                      "type": "Number",
+                      "name": 1
+                    },
                     {
                       "type": "Keyword",
                       "name": "auto",
@@ -531,31 +638,6 @@
                     {
                       "type": "Number",
                       "name": 0
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "Declaration",
-              "name": "flex",
-              "vendor": "ms",
-              "children": [
-                {
-                  "type": "Value",
-                  "children": [
-                    {
-                      "type": "Number",
-                      "name": 0
-                    },
-                    {
-                      "type": "Number",
-                      "name": 1
-                    },
-                    {
-                      "type": "Keyword",
-                      "name": "auto",
-                      "vendor": null
                     }
                   ]
                 }
@@ -572,6 +654,48 @@
                     {
                       "type": "Keyword",
                       "name": "initial",
+                      "vendor": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
+              "name": "flex",
+              "vendor": "webkit",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Keyword",
+                      "name": "initial",
+                      "vendor": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Declaration",
+              "name": "flex",
+              "vendor": "ms",
+              "children": [
+                {
+                  "type": "Value",
+                  "children": [
+                    {
+                      "type": "Number",
+                      "name": 0
+                    },
+                    {
+                      "type": "Number",
+                      "name": 1
+                    },
+                    {
+                      "type": "Keyword",
+                      "name": "auto",
                       "vendor": null
                     }
                   ]

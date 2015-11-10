@@ -1,17 +1,21 @@
 div {
-	display: -ms-flexbox;
-	display: -webkit-box;
-	display: flex;
-	-ms-flex-align: start;
-	-webkit-box-align: start;
-	align-items: flex-start;
-	-ms-flex-flow: column wrap;
-	-webkit-box-orient: vertical;
 	-webkit-box-lines: multiple;
+	-webkit-box-orient: vertical;
+	-webkit-box-align: start;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	-webkit-flex-flow: column wrap;
+	-ms-flex-flow: column wrap;
 	flex-flow: column wrap;
 }
 div > div {
-	-ms-flex: 1 0 100%;
 	-webkit-box-flex: 1;
+	-webkit-flex: 1 0 100%;
+	-ms-flex: 1 0 100%;
 	flex: 1 0 100%;
 }

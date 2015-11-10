@@ -1,7 +1,9 @@
 var stylecow = require('stylecow-core');
 
 var tests = new stylecow.Test(__dirname + '/cases');
-var tasks = (new stylecow.Tasks()).use(require('../index'));
+var tasks = (new stylecow.Tasks())
+    .use(require('stylecow-plugin-prefixes'))
+    .use(require('../index'))
 
 tests.run(function (test) {
     tasks.run(test.css);

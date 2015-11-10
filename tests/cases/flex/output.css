@@ -1,32 +1,38 @@
 .foo {
-	-ms-flex: 1 1 0%;
 	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1 1 0%;
 	flex: 1 1 0%;
 }
 .foo {
-	-ms-flex: 1 1 0%;
 	-webkit-box-flex: 1;
+	-webkit-flex: 1 1;
+	-ms-flex: 1 1 0%;
 	flex: 1 1 0%;
 }
 .foo {
-	-ms-flex: 1 1 0%;
 	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 0;
+	-ms-flex: 1 1 0%;
 	flex: 1 1 0%;
 }
 .foo {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1 1 0px;
 	-ms-flex: 1 1 0px;
-	-webkit-box-flex: 1;
 	flex: 1 1 0px;
 }
 .foo {
 	-webkit-box-flex: 1;
-	-ms-flex: 1 1 auto;
 	-webkit-box-flex: auto;
+	-webkit-flex: auto;
+	-ms-flex: 1 1 auto;
 	flex: auto;
 }
 .foo {
 	-webkit-box-flex: 0;
-	-ms-flex: 0 1 auto;
 	-webkit-box-flex: initial;
+	-webkit-flex: initial;
+	-ms-flex: 0 1 auto;
 	flex: initial;
 }

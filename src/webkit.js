@@ -31,8 +31,10 @@ module.exports = function (tasks) {
             ]
         },
         fn: function (declaration) {
-            declaration
-                .cloneBefore()
+            var newDecl = declaration.clone();
+            declaration.getParent().unshift(newDecl);
+
+            newDecl
                 .getAll({
                     type: 'Keyword',
                     name: ['flex', 'inline-flex']
@@ -96,7 +98,7 @@ module.exports = function (tasks) {
                     val = '0.0';
                 }
 
-                declaration.codeBefore('-webkit-box-flex: ' + val, 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-flex: ' + val, 'Declaration');
             }
         }
     });
@@ -123,7 +125,7 @@ module.exports = function (tasks) {
             name: 'order'
         },
         fn: function (declaration) {
-            declaration.codeBefore('-webkit-box-ordinal-group: ' + (parseInt(declaration.join(' ')) + 1), 'Declaration');
+            declaration.getParent().unshiftCode('-webkit-box-ordinal-group: ' + (parseInt(declaration.join(' ')) + 1), 'Declaration');
         }
     });
 
@@ -136,8 +138,10 @@ module.exports = function (tasks) {
             name: Object.keys(names)
         },
         fn: function (declaration) {
-            declaration
-                .cloneBefore()
+            var newDecl = declaration.clone();
+            declaration.getParent().unshift(newDecl);
+
+            newDecl
                 .setName(names[declaration.name])
                 .getAll({
                     type: 'Keyword',
@@ -152,16 +156,16 @@ module.exports = function (tasks) {
     function applyFlexWrap(value, declaration) {
         switch (value) {
             case 'wrap':
-                declaration.codeBefore('-webkit-box-lines: multiple', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-lines: multiple', 'Declaration');
                 break;
 
             case 'nowrap':
-                declaration.codeBefore('-webkit-box-lines: single', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-lines: single', 'Declaration');
                 break;
 
             case 'wrap-reverse':
-                declaration.codeBefore('-webkit-box-lines: multiple', 'Declaration');
-                declaration.codeBefore('-webkit-box-direction: reverse', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-lines: multiple', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-direction: reverse', 'Declaration');
                 break;
         }
     }
@@ -169,21 +173,21 @@ module.exports = function (tasks) {
     function applyFlexDirection(value, declaration) {
         switch (value) {
             case 'row':
-                declaration.codeBefore('-webkit-box-orient: horizontal', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-orient: horizontal', 'Declaration');
                 break;
 
             case 'row-reverse':
-                declaration.codeBefore('-webkit-box-orient: horizontal', 'Declaration');
-                declaration.codeBefore('-webkit-box-direction: reverse', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-orient: horizontal', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-direction: reverse', 'Declaration');
                 break;
 
             case 'column':
-                declaration.codeBefore('-webkit-box-orient: vertical', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-orient: vertical', 'Declaration');
                 break;
 
             case 'column-reverse':
-                declaration.codeBefore('-webkit-box-orient: vertical', 'Declaration');
-                declaration.codeBefore('-webkit-box-direction: reverse', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-orient: vertical', 'Declaration');
+                declaration.getParent().unshiftCode('-webkit-box-direction: reverse', 'Declaration');
                 break;
         }
     }
